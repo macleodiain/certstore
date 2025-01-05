@@ -48,7 +48,7 @@ env:
 
     # Match this to any external database server to configure Active Record correctly
     # Use cert_store-db for a db accessory server on same machine via local kamal docker network.
-     DB_HOST: DB_HOST
+    DB_HOST: DB_HOST
 
     # Log everything from Rails
     # RAILS_LOG_LEVEL: debug
