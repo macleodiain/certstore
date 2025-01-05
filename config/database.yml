@@ -19,6 +19,12 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+ sqlite: &sqlite
+  adapter: sqlite3
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
 
 development:
   <<: *default
@@ -82,17 +88,16 @@ production:
   primary: &primary_production
     <<: *default
     database: cert_store_production
-    username: cert_store
-    password: <%= ENV["CERT_STORE_DATABASE_PASSWORD"] %>
+    <%= Rails.application.credentials.db_url %>
   cache:
-    <<: *primary_production
-    database: cert_store_production_cache
+    <<: *sqlite
+    database: storage/cert_store_production_cache.sqlite3
     migrations_paths: db/cache_migrate
   queue:
-    <<: *primary_production
-    database: cert_store_production_queue
+    <<: *sqlite
+    database: storage/cert_store_production_queue.sqlite3
     migrations_paths: db/queue_migrate
   cable:
-    <<: *primary_production
-    database: cert_store_production_cable
+    <<: *sqlite
+    database: storage/cert_store_production_cable.sqlite3
     migrations_paths: db/cable_migrate
