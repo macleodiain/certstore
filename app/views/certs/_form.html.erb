@@ -1,0 +1,25 @@
+<%= form_with model: cert do |form|%>
+<div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <% @cert.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+</div>
+<div>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+    <% @cert.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+</div>
+<div>
+    <%= form.label :expires %>
+    <%= form.date_field :expires %>
+    <% @cert.errors.full_messages_for(:expires).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+</div>
+
+<div><%= form.submit%></div>
+<%end%>

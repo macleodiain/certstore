@@ -1,0 +1,6 @@
+<%= @cert.name %>
+<%= @cert.expires%>
+<%= image_tag @cert.image %>
+
+<%= link_to "Edit", edit_cert_path%>
+<%= link_to "Delete", cert_path, data: {turbo_method: :delete} %>
