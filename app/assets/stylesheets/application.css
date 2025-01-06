@@ -48,3 +48,16 @@
     width: 250px;
     height: 250px;
  }
+
+ .nav-container {
+     display: flex;
+     justify-content: space-between;
+     padding: 10px 25px;
+     /*height: 500px;*/
+ }
+
+ .links {
+     display: flex;
+     gap: 25px;
+     height: 50px;
+ }

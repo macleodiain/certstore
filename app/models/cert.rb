@@ -4,6 +4,8 @@ class Cert < ApplicationRecord
   validates :name, presence: true
   validates :image, presence: true
 
+  scope :sorted, -> { order(Arel.sql("expires ASC NULLS LAST")) }
+
   def expired?
     expires < Time.current
   end
