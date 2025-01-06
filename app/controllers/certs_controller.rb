@@ -1,4 +1,5 @@
 class CertsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @certs = Cert.all
   end
