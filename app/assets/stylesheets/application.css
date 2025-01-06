@@ -12,11 +12,17 @@
  /* *{
     border: 1px solid black;
  } */
+
+html{
+    background-image: url("bg.jpg");
+}
+
  .cert-container{
     display:flex;
     /* border: 1px solid black; */
     margin-left: 20%;
     margin-right: 20%;
+    backdrop-filter: blur(10px);
  }
 
  .details-panel{
@@ -52,8 +58,8 @@
  .nav-container {
      display: flex;
      justify-content: space-between;
-     padding: 10px 25px;
-     /*height: 500px;*/
+     padding: 25px 25px 0px 25px;
+    backdrop-filter: blur(10px);
  }
 
  .links {
