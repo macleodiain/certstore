@@ -7,7 +7,7 @@
                 <p class = "expires">Does not expire</p>
             <%else%>
             <p class = "expires">Expiry Date: <%= cert.expires.strftime("%d / %m / %y")%> </p>
-            <p class = "expires"><%= cert.expires_in%> remaining</p>
+            <p class = "expires"><%= cert.expires_in%></p>
             <%end%>
         </div>
         <div class="image-panel">

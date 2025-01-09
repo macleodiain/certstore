@@ -1,6 +1,13 @@
-<%= @cert.name %>
-<%= @cert.expires%>
-<%= image_tag @cert.image %>
+<div>
+  <div class = "nav-container" >
+    <div class = "details-panel">
+      <div class = "name"><%= @cert.name %></div>
+      <%= @cert.expires %></div>
+    <div class = "links" ><%= link_to "Edit", edit_cert_path %>
+      <%= link_to "Delete", cert_path, data: { turbo_method: :delete } %></div>
+  </div>
 
-<%= link_to "Edit", edit_cert_path%>
-<%= link_to "Delete", cert_path, data: {turbo_method: :delete} %>
+  <div class = "image-panel"><%= image_tag @cert.image %></div>
+</div>
+
+

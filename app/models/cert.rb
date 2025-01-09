@@ -12,14 +12,17 @@ class Cert < ApplicationRecord
 
   def expires_in
     difference = expires - Date.current
-    if difference > 365
-      "#{(difference/365.25).round(1)} years"
+    if expired?
+      "EXPIRED"
     else
-      "#{difference.to_i} days"
+      if difference > 365
+        "#{(difference / 365.25).round(1)} years remaining"
+      else
+        "#{difference.to_i} days remaining"
+      end
     end
   end
 end
-
 
 # do |attachable|
 #     attachable.variant :thumb, resize_to_limit: [ 300, 300 ]
