@@ -21,5 +21,10 @@
     <% end %>
 </div>
 
+  <div>
+    <%= current_user.id %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
 <div><%= form.submit%></div>
 <%end%>

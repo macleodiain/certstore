@@ -14,4 +14,5 @@ Rails.application.routes.draw do
    root "certs#index"
 
    resources :certs
+  get "dashboard", to: "certs#dashboard", as: "dashboard"
 end

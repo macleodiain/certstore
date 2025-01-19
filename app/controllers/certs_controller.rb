@@ -1,11 +1,26 @@
 class CertsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [ :index ]
   def index
-    @certs = Cert.sorted
+    if user_signed_in?
+      redirect_to dashboard_path
+    end
+
+  end
+
+  def dashboard
+    @certs = current_user.certs.sorted
   end
 
   def show
-    @cert = Cert.find(params[:id])
+
+    begin
+      @cert = current_user.certs.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      @cert = nil
+    end
+    if @cert.nil?
+      redirect_to dashboard_path, alert: "Cert not found"
+    end
   end
 
   def new
@@ -42,6 +57,6 @@ class CertsController < ApplicationController
 
   private
   def cert_params
-    params.require(:cert).permit(:name, :image, :expires)
+    params.require(:cert).permit(:name, :image, :expires, :user_id)
   end
 end

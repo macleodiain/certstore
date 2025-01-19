@@ -1,0 +1,18 @@
+
+<% @certs.each do |cert| %>
+    <div class = "cert-container">
+        <div class="details-panel">
+            <p class = "name"><%= link_to cert.name, cert_path(cert)%></p>
+            <% if cert.expires.nil?%>
+                <p class = "expires">Does not expire</p>
+            <%else%>
+            <p class = "expires">Expiry Date: <%= cert.expires.strftime("%d / %m / %y")%> </p>
+            <p class = "expires"><%= cert.expires_in%></p>
+            <%end%>
+        </div>
+        <div class="image-panel">
+            <p><%= image_tag cert.image, class: "cert-image" %></p>
+        </div>
+        
+    </div>
+<%end%>
