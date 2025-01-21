@@ -1,67 +1,81 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    /*border: 1px solid black;*/
+    color: #242124;
+    font-family: "Poppins", Sans-Serif, serif;
+    background-color: #CF5A3A ;
+}
+img{
+    width: 150px;
+    height: auto;
+}
+.container{
+    display: grid;
+    grid-template: repeat(5,auto)/repeat(8, 1fr);
 
- /* *{
-    border: 1px solid black;
- } */
-
-html{
-    background-image: url("bg.jpg");
 }
 
- .cert-container{
-    display:flex;
-    /* border: 1px solid black; */
-    margin-left: 20%;
-    margin-right: 20%;
-    backdrop-filter: blur(8px);
- }
+.nav-section{
+    /*display: grid;*/
+    /*justify-self: space-between;*/
+    grid-column: 1/9;
+    grid-row: 1/2;
+    margin: 35px 0;
 
- .details-panel{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: large;
-    padding-left: 2%;
-    padding-right: 2%;
-    width: 350px;
- }
+}
 
- .name{
-    font-size: 24px;
-    font-weight: 700;
-    font-style: italic;
- }
-
- .image-panel {
-    /* border: 1px solid black ; */
+.nav{
     display: flex;
-    flex-grow: 1;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
- }
+    background-color: #E0E1E0;
+    border-radius: 10px;
+    margin: 0 15%;
+}
 
- .cert-image{
-    width: 250px;
-    height: 250px;
- }
+.links, .links *{
+    background-color: #E0E1E0;
+}
 
- .nav-container {
-     display: flex;
-     justify-content: space-between;
-     padding: 25px 25px 0px 25px;
-     margin: 0px 15%;
-    backdrop-filter: blur(10px);
- }
+.nav-left{
+    display: flex;
+    gap: 30px;
+}
 
- .links {
-     display: flex;
-     gap: 25px;
-     height: 50px;
- }
+.main{
+    grid-column: 2/8;
+    grid-row: 3/auto;
+    gap: 15px;
+}
+
+.cert-display-card{
+    display:grid;
+    grid-template: 5fr/repeat(auto-fit, minmax(auto, 400px));
+    justify-content: center;
+    gap: 15px;
+}
+
+.cert{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 125px) );
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px;
+    padding: 25px 15px;
+    column-gap: 15%;
+    row-gap: 5%;
+
+}
+.cert, .details-panel, .name, .expires, .image-panel, .cert-link, p{
+    background-color: #E0E1E0;
+}
+
+a{
+    font-size: large;
+    font-weight: 900;
+}
+
+
