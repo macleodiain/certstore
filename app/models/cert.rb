@@ -17,9 +17,9 @@ class Cert < ApplicationRecord
       "EXPIRED"
     else
       if difference > 365
-        "#{(difference / 365.25).round(1)} years remaining"
+        "#{(difference / 365.25).round(1)} Years Remaining"
       else
-        "#{difference.to_i} days remaining"
+        "#{difference.to_i} Days Remaining"
       end
     end
   end

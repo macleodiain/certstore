@@ -73,6 +73,10 @@ img{
     background-color: #E0E1E0;
 }
 
+.details-panel, .expires{
+    width: fit-content;
+}
+
 a{
     font-size: large;
     font-weight: 900;
