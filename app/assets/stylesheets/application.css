@@ -7,10 +7,11 @@
     font-family: "Poppins", Sans-Serif, serif;
     background-color: #CF5A3A ;
 }
-img{
+.image-panel > img{
     width: 150px;
     height: auto;
 }
+
 .container{
     display: grid;
     grid-template: repeat(5,auto)/repeat(8, 1fr);
@@ -69,11 +70,22 @@ img{
     row-gap: 5%;
 
 }
-.cert, .details-panel, .name, .expires, .image-panel, .cert-link, p{
+.cert, .details-panel, .image-panel, .cert-link{
     background-color: #E0E1E0;
 }
 
-.details-panel, .expires{
+.details-item, .details-item > *{
+    background-color: #E0E1E0;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.name {
+    font-weight: 800;
+    font-style: normal;
+}
+
+.details-panel{
     width: fit-content;
 }
 
@@ -82,4 +94,29 @@ a{
     font-weight: 900;
 }
 
+.show-container{
+    display:grid;
+    grid-template: 1fr/1fr 5fr;
+    grid-template-areas:
+        "details image";
+}
+.show-details-panel{
+    grid-area: details;
+    display:flex;
+    flex-direction: column;
+    padding: 35px;
+    background-color: #E0E1E0;
+    gap: 25px;
+}
+.show-image > img{
+    width: 50%;
+    height: auto;
+    grid-area: image;
+}
+.show-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 
