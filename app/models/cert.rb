@@ -23,6 +23,17 @@ class Cert < ApplicationRecord
       end
     end
   end
+
+  def attached_file_type
+    file_type = image.content_type
+    if file_type.include? "image"
+      "image"
+    elsif file_type.include? "pdf"
+      "pdf"
+    else
+      "unknown"
+    end
+  end
 end
 
 # do |attachable|

@@ -2,7 +2,7 @@
   <% @certs.each do |cert| %>
     <div class="cert">
       <div class="details-panel">
-
+        <%= cert.attached_file_type %>
         <p class="name"><%= link_to cert.name.upcase, cert_path(cert), class: "cert-link" %></p><br>
         <% if cert.expires.nil? %>
           <p class="expires">Does not expire</p>
@@ -12,7 +12,13 @@
         <% end %>
       </div>
       <div class="image-panel">
-        <p><%= image_tag cert.image, class: "cert-image" %></p>
+        <% if cert.attached_file_type == "image" %>
+          <p><%= image_tag cert.image, class: "cert-image" %></p>
+        <% elsif cert.attached_file_type == "pdf" %>
+          <%= image_tag cert.image.representation(resize_to_limit: [150, 107])%>
+        <% else %>
+          Image supplied is not accepted format.  Must be image (.jpg, .jpeg, .png etc) or pdf.
+        <% end %>
       </div>
 
     </div>
